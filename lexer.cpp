@@ -67,3 +67,14 @@ static int get_token() {
  return ThisChar;
 
 } // end of get_token()
+
+/* DEFINE AST STRUCTURE */
+
+// Base class is defined by parsing an expression as follows:
+
+class BaseAST {
+		public:
+		virtual ~BaseAST();
+};
+
+
