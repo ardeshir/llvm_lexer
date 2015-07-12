@@ -34,7 +34,7 @@ static int get_token() {
  if(isalpha(LastChar)) {
 	Identifier_string = LastChar;
 
-	while(isalpha(LastChar = fgetc(file)))
+	while(isalnum(LastChar = fgetc(file)))
 	Identifier_string += LastChar;
 
        if(Identifier_string == "func")
