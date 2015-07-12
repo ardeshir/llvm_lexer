@@ -38,7 +38,7 @@ static int get_token() {
 	Identifier_string += LastChar;
 
        if(Identifier_string == "func")
-	return DEF_TOEKN;
+	return DEF_TOKEN;
 	return IDENTIFIER_TOKEN;
  }
 
@@ -47,7 +47,8 @@ static int get_token() {
 	do {
 	  NumStr += LastChar;
 	  LastChar = fgetc(file);
-	} while (isdigit(LastChar)):
+	} while (isdigit(LastChar));
+
    Numeric_Val = strtord(NumStr.c_str(), 0);
    return NUMERIC_TOKEN;
  }
