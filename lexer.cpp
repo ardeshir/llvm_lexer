@@ -77,4 +77,32 @@ class BaseAST {
 		virtual ~BaseAST();
 };
 
+// Then several  derived classes are defined  for every type of expression to parse
 
+class VariableAST : public BaseAST {
+	std::string Var_Name;
+	// string object to store name of the variable
+public:
+	VariableAST (std::string &name) : Var_Name(name) () 
+	/* paramatized constructor of variable AST Class to be  initialized with
+	 the string passed to the constructor */
+};
+
+class NumericAST : public BaseAST {
+		int numeric_val;
+		NumericASt (intval) : numeric_val(val) {}
+};
+
+class BinaryAST : public BaseAST {
+	// string object to store binary operators
+		std::string Bin_Operator;
+    // Objects used to store LHS and RHS of binary Expressions
+    // The LHS and RHS binary operations can be of any type, hence a 
+	// BaseAST object is used to store them
+	BaseAST *LHS, *RHS; 
+public: 
+	BinaryAST (std::string op, BaseAST *lhs, BaseAST *rhs) : 
+	Bin_Operator(op), LHS(lhs), RHS(rhs) {} 
+	// Constructor to initialize the binary operator, lhs & rhs of the binary
+	// expression
+};
