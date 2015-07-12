@@ -106,3 +106,33 @@ public:
 	// Constructor to initialize the binary operator, lhs & rhs of the binary
 	// expression
 };
+
+// The AST Class for function declartions 
+class FunctionDeclAST {
+		std::string Func_Name;
+		std::vector<std::string> Arguments;
+	public:
+		FunctionDeclAST(const std::string &name, const std::vector<std::string> &args) :
+		Func_Name(name), Arguments(args) {} 
+};
+
+// The AST Class for function definition 
+
+class FunctionDefnAST {
+  FunctionDeclAST *Func_Decl;
+  BaseAST* Body;
+public:
+	FunctionDefnAST(FunctionDeclAST *proto, BaseAST *body) :
+	Func_Decl(proto), Body(body) {}
+};
+
+// The AST Class for function call
+
+class FunctionCallAST : public BaseAST {
+	std::string Function_Callee;
+	std::vector<BaseAST* > Function_Arguments;
+public:
+	FunctionCallAST(const std::string &callee, std::vector<BaseAST*> &args):
+	Function_Callee(callee), Function_Arguments(args) {}
+};
+
